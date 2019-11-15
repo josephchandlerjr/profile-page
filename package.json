@@ -21,5 +21,15 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephchandlerjr/YelpCamp.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/josephchandlerjr/YelpCamp/issues"
+  },
+  "homepage": "https://github.com/josephchandlerjr/YelpCamp#readme"
 }

@@ -18,7 +18,15 @@ const commentRoutes 	= require("./routes/comments.js"),
 	  authRoutes		= require("./routes/index.js");
 //seedDB();
 mongoose.set('useFindAndModify', false); //removes deprecation warning
-mongoose.connect("mongodb://localhost:27017/yelp_camp_v12", {useNewUrlParser: true ,useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://agnesi:Penn$2001@cluster0-oj1q9.mongodb.net/test?retryWrites=true&w=majority", {
+	useNewUrlParser: true ,
+	useUnifiedTopology: true,
+	useCreateIndex: true
+}).then(() => {
+	console.log("Connected to DB");
+}).catch(err => {
+	console.log("Error", err.message);
+});
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
