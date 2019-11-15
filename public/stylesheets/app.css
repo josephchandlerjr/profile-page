@@ -1,0 +1,16 @@
+.thumbnail .caption-full {
+	padding: 10px;
+}
+
+.thumbnail img {
+	width: 100%;
+}
+
+.thumbnail {
+	padding: 0;
+}
+
+#delete-campground, #delete-comment {
+	display: inline;
+	color: red;
+}
