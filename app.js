@@ -17,16 +17,23 @@ const commentRoutes 	= require("./routes/comments.js"),
 	  campgroundRoutes	= require("./routes/campgrounds.js"),
 	  authRoutes		= require("./routes/index.js");
 //seedDB();
+console.log(process.env.DATABASEURL);
 mongoose.set('useFindAndModify', false); //removes deprecation warning
-mongoose.connect("mongodb+srv://agnesi:Penn$2001@cluster0-oj1q9.mongodb.net/test?retryWrites=true&w=majority", {
-	useNewUrlParser: true ,
-	useUnifiedTopology: true,
-	useCreateIndex: true
-}).then(() => {
-	console.log("Connected to DB");
-}).catch(err => {
-	console.log("Error", err.message);
-});
+
+
+if(process.env.HEROKU == "true"){// cloud db
+	mongoose.connect(process.env.DATABASEURL, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+		useCreateIndex: true
+	}).then(() => {
+		console.log("Connected to DB");
+	}).catch(err => {
+		console.log("Error", err.message);
+	});
+} else { // local db
+	mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true ,useUnifiedTopology: true});
+}
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
