@@ -32,7 +32,7 @@ if(process.env.HEROKU == "true"){// cloud db
 		console.log("Error", err.message);
 	});
 } else { // local db
-	mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true ,useUnifiedTopology: true});
+	mongoose.connect("mongodb://localhost:27017/yelp_camp", {useNewUrlParser: true ,useUnifiedTopology: true});
 }
 
 app.set("view engine", "ejs");
@@ -46,7 +46,7 @@ app.use(flash());
 
 // PASSPORT CONFIGURATION
 app.use(expressSession({
-	secret: "Ich will noch nicht gehen, ich will noch ein bisschen tanzen",
+	secret: process.env.SECRET,
 	resave: false,
 	saveUninitialized: false
 }));
