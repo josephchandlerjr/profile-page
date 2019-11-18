@@ -25,6 +25,13 @@ const projects = [
 		route: "/yelpcamp",
 		github: "https://github.com/josephchandlerjr/YelpCamp.git"
 	},
+	{
+		name: "Chess for Emerson", 
+		description: "something something chess related", 
+		image:"https://images.unsplash.com/photo-1538221566857-f20f826391c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+		route: "/chess",
+		github: "https://github.com/josephchandlerjr/Chess_For_Emerson"
+	},
 ];
 
 //seedDB();
@@ -79,6 +86,7 @@ app.use((req, res, next) => {
 
 // ROUTES
 app.get("/", (req,res) => res.render("landing", {projects}));
+app.get("/chess", (req,res) => res.render("chess/index"));
 app.use("/yelpcamp", yelpcampAuthRoutes);
 app.use("/yelpcamp/campgrounds/:id/comments", yelpcampCommentRoutes);
 app.use("/yelpcamp/campgrounds", yelpcampCampgroundRoutes);
