@@ -5,7 +5,7 @@ const express 	= require("express"),
 
 //root route
 router.get("/", (req, res) => {
-	res.render("landing");
+	res.render("yelpcamp/landing");
 });
 
 
@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
 
 // register routes
 router.get("/register", (req, res) => {
-	res.render("register");
+	res.render("yelpcamp/register");
 });
 
 // sign-up logic
@@ -39,7 +39,7 @@ router.post("/register", (req, res) => {
 // login routes
 
 router.get("/login", (req, res) => {
-	res.render("login");
+	res.render("yelpcamp/login");
 });
 
 router.post("/login", 

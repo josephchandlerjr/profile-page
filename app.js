@@ -17,7 +17,6 @@ const commentRoutes 	= require("./routes/comments.js"),
 	  campgroundRoutes	= require("./routes/campgrounds.js"),
 	  authRoutes		= require("./routes/index.js");
 //seedDB();
-console.log(process.env.DATABASEURL);
 mongoose.set('useFindAndModify', false); //removes deprecation warning
 
 
@@ -46,7 +45,7 @@ app.use(flash());
 
 // PASSPORT CONFIGURATION
 app.use(expressSession({
-	secret: process.env.SECRET,
+	secret: process.env.SECRET || "test environment",
 	resave: false,
 	saveUninitialized: false
 }));

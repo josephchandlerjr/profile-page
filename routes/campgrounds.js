@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
 		if(err) {
 			console.log(`Error: ${err}`);
 		} else {
-			res.render("campgrounds/index", {campgrounds});
+			res.render("yelpcamp/campgrounds/index", {campgrounds});
 		}
 	});
 	
@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
 
 // NEW - show form to create new campground
 router.get("/new", isLoggedIn, (req, res) => {
-	res.render("campgrounds/new");
+	res.render("yelpcamp/campgrounds/new");
 });
 
 
@@ -52,7 +52,7 @@ router.get("/:id", (req, res) => {
 			req.flash("error", "Campground does not exist");
 			res.redirect("/campgrounds");
 		} else {
-			res.render("campgrounds/show", {campground});
+			res.render("yelpcamp/campgrounds/show", {campground});
 		}
 		
 	}); 
@@ -67,7 +67,7 @@ router.get("/:id/edit", checkCampgroundOwnership, (req, res) => {
 			req.flash("error", "Campground not found");
 			res.redirect("/campgrounds");
 		} else {
-			res.render("campgrounds/edit", {campground});
+			res.render("yelpcamp/campgrounds/edit", {campground});
 		}
 	});
 });

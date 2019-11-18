@@ -11,7 +11,7 @@ router.get("/new", isLoggedIn, (req, res) => {
 			req.flash("error", "Campground not found");
 			res.redirect("/campgrounds");
 		} else {
-			res.render("comments/new", {campground});
+			res.render("yelpcamp/comments/new", {campground});
 		}
 	});
 });
@@ -57,7 +57,7 @@ router.get("/:commentId/edit", (req, res) =>{
 					req.flash("error", "Comment not found");
 					res.redirect("/campgrounds");
 				} else {
-					res.render("comments/edit", {campground, comment});
+					res.render("yelpcamp/comments/edit", {campground, comment});
 				}
 				
 			});
