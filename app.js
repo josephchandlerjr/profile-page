@@ -16,6 +16,17 @@ const express 				= require("express"),
 const yelpcampCommentRoutes 	= require("./routes/yelpcamp/comments.js"),
 	  yelpcampCampgroundRoutes	= require("./routes/yelpcamp/campgrounds.js"),
 	  yelpcampAuthRoutes		= require("./routes/yelpcamp/index.js");
+
+const projects = [
+	{
+		name: "YelpCamp", 
+		description: "something something", 
+		image:"https://images.unsplash.com/photo-1528150206408-07a3f3025282?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+		route: "/yelpcamp",
+		github: "https://github.com/josephchandlerjr/YelpCamp.git"
+	},
+];
+
 //seedDB();
 mongoose.set('useFindAndModify', false); //removes deprecation warning
 
@@ -67,6 +78,7 @@ app.use((req, res, next) => {
 });
 
 // ROUTES
+app.get("/", (req,res) => res.render("landing", {projects}));
 app.use("/yelpcamp", yelpcampAuthRoutes);
 app.use("/yelpcamp/campgrounds/:id/comments", yelpcampCommentRoutes);
 app.use("/yelpcamp/campgrounds", yelpcampCampgroundRoutes);

@@ -14,3 +14,7 @@
 	display: inline;
 	color: red;
 }
+
+#landing-header {
+	background: url("/img/header.jpeg");
+}
