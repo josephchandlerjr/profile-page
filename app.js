@@ -13,9 +13,9 @@ const express 				= require("express"),
 	  methodOverride		= require("method-override"),
 	  flash					= require("connect-flash");
 
-const commentRoutes 	= require("./routes/comments.js"),
-	  campgroundRoutes	= require("./routes/campgrounds.js"),
-	  authRoutes		= require("./routes/index.js");
+const yelpcampCommentRoutes 	= require("./routes/yelpcamp/comments.js"),
+	  yelpcampCampgroundRoutes	= require("./routes/yelpcamp/campgrounds.js"),
+	  yelpcampAuthRoutes		= require("./routes/yelpcamp/index.js");
 //seedDB();
 mongoose.set('useFindAndModify', false); //removes deprecation warning
 
@@ -67,8 +67,8 @@ app.use((req, res, next) => {
 });
 
 // ROUTES
-app.use(authRoutes);
-app.use("/campgrounds/:id/comments", commentRoutes);
-app.use("/campgrounds", campgroundRoutes);
+app.use(yelpcampAuthRoutes);
+app.use("/campgrounds/:id/comments", yelpcampCommentRoutes);
+app.use("/campgrounds", yelpcampCampgroundRoutes);
 
 app.listen(process.env.PORT || 3000, () => console.log("YelpCamp Server has started"));

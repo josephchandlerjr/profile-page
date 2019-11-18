@@ -1,8 +1,8 @@
 const express 		= require("express"),
 	  router		= express.Router(),
-	  Campground	= require("../models/campground.js"),
-	  Comment		= require("../models/comment.js"),
-	  {checkCampgroundOwnership, isLoggedIn} = require("../middleware"); //will pull in index.js automatically
+	  Campground	= require("../../models/campground.js"),
+	  Comment		= require("../../models/comment.js"),
+	  {checkCampgroundOwnership, isLoggedIn} = require("../../middleware"); //will pull in index.js automatically
 
 // INDEX - show campgrounds
 router.get("/", (req, res) => {

@@ -1,8 +1,8 @@
 const express 	= require("express"),
 	  router	= express.Router({mergeParams: true}), // mergeParams = true so we can access id route param on req.params
-	  Campground = require("../models/campground.js"),
-	  Comment = require("../models/comment.js"),
-	  {checkCommentOwnership, isLoggedIn} = require("../middleware"); //will pull in index.js automatically
+	  Campground = require("../../models/campground.js"),
+	  Comment = require("../../models/comment.js"),
+	  {checkCommentOwnership, isLoggedIn} = require("../../middleware"); //will pull in index.js automatically
 
 //NEW - show form to create a new comment
 router.get("/new", isLoggedIn, (req, res) => {
