@@ -20,14 +20,18 @@ const yelpcampCommentRoutes 	= require("./routes/yelpcamp/comments.js"),
 const projects = [
 	{
 		name: "YelpCamp", 
-		description: "something something", 
+		description: "something something",
+		bullets: [],
 		image:"https://images.unsplash.com/photo-1528150206408-07a3f3025282?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
 		route: "/yelpcamp",
 		github: "https://github.com/josephchandlerjr/YelpCamp.git"
 	},
 	{
 		name: "Chess for Emerson", 
-		description: "something something chess related", 
+		description: "A chess game I built for my six year old daughter. It's attached to a simple chess engine that:",
+		bullets: ["Validates moves (Including En Passant and Castling)",
+				  "Executes random moves as black or white (or neither if you wish to move both)", 
+				  "Highlights possible moves for player, and recognizes Checkmate vs Draw"],
 		image:"https://images.unsplash.com/photo-1538221566857-f20f826391c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
 		route: "/chess",
 		github: "https://github.com/josephchandlerjr/Chess_For_Emerson"

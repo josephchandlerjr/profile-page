@@ -41,6 +41,11 @@
                         <div class="card-body">
                             <h5 class="card-title"><%= project.name %></h5>
                             <p class="card-text"><%= project.description %></p>
+							<ul>
+								<% for(bullet of project.bullets) { %>
+									<li><%= bullet %></li>
+								<% } %>	
+							</ul>
                             <a href="<%= project.route %>" target="_blank" class="btn btn-outline-primary btn-sm">View Project</a>
                             <a href="<%= project.github %>" target="_blank" class="btn btn-dark btn-sm"><i class="fab fa-github"></i></a>
                         </div>
