@@ -20,8 +20,8 @@ const yelpcampCommentRoutes 	= require("./routes/yelpcamp/comments.js"),
 const projects = [
 	{
 		name: "YelpCamp", 
-		description: "something something",
-		bullets: [],
+		description: "A RESTful Node.js app, where users can enter campground profiles and view/comment on others' campgrounds. Built during Colt Steele's Web Developer Bootcamp course in Udemy using:",
+		bullets: ["MongoDB", "Express.js", "Node.js", "Bootstrap 3"],
 		image:"https://images.unsplash.com/photo-1528150206408-07a3f3025282?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
 		route: "/yelpcamp",
 		github: "https://github.com/josephchandlerjr/YelpCamp.git"
@@ -35,6 +35,14 @@ const projects = [
 		image:"https://images.unsplash.com/photo-1538221566857-f20f826391c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
 		route: "/chess",
 		github: "https://github.com/josephchandlerjr/Chess_For_Emerson"
+	},
+	{
+		name: "Patatap clone", 
+		description: "A simpler version of patatap, a visual sound kit application with animations:",
+		bullets: ["Press keys for sound and animation", "Paper.js", "Howler.js"],
+		image:"https://images.unsplash.com/photo-1528044166082-4159f1209b3a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+		route: "/patatapClone",
+		github: "https://github.com/josephchandlerjr/Patatap_Clone"
 	},
 ];
 
@@ -91,6 +99,7 @@ app.use((req, res, next) => {
 // ROUTES
 app.get("/", (req,res) => res.render("landing", {projects}));
 app.get("/chess", (req,res) => res.render("chess/index"));
+app.get("/patatapClone", (req,res) => res.render("patatapClone/index"));
 app.use("/yelpcamp", yelpcampAuthRoutes);
 app.use("/yelpcamp/campgrounds/:id/comments", yelpcampCommentRoutes);
 app.use("/yelpcamp/campgrounds", yelpcampCampgroundRoutes);
