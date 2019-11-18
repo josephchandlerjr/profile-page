@@ -9,7 +9,7 @@ router.get("/new", isLoggedIn, (req, res) => {
 	Campground.findById(req.params.id, (err, campground) => {
 		if (err || !campground){
 			req.flash("error", "Campground not found");
-			res.redirect("/campgrounds");
+			res.redirect("/yelpcamp/campgrounds");
 		} else {
 			res.render("yelpcamp/comments/new", {campground});
 		}
@@ -21,7 +21,7 @@ router.post("/", isLoggedIn, (req, res) => {
 	Campground.findById(req.params.id, (err, campground) => {	
 		if (err || !campground) {
 			req.flash("error", "Campground not found");
-			res.redirect("/campgrounds");
+			res.redirect("/yelpcamp/campgrounds");
 		} else {
 			Comment.create(req.body.comment, (err, comment) => {
 				if (err || !comment) {
@@ -36,7 +36,7 @@ router.post("/", isLoggedIn, (req, res) => {
 					campground.comments.push(comment);
 					campground.save();
 					req.flash("success", "Comment Created");
-					res.redirect(`/campgrounds/${req.params.id}`);
+					res.redirect(`/yelpcamp/campgrounds/${req.params.id}`);
 				}
 				
 			});
@@ -50,12 +50,12 @@ router.get("/:commentId/edit", (req, res) =>{
 	Campground.findById(req.params.id, (err, campground) => {
 		if (err || !campground){
 			req.flash("error", "Campground not found");
-			res.redirect("/campgrounds");
+			res.redirect("/yelpcamp/campgrounds");
 		} else {
 			Comment.findById(req.params.commentId, (err, comment) => {
 				if(err || !comment){
 					req.flash("error", "Comment not found");
-					res.redirect("/campgrounds");
+					res.redirect("/yelpcamp/campgrounds");
 				} else {
 					res.render("yelpcamp/comments/edit", {campground, comment});
 				}
@@ -76,7 +76,7 @@ router.put("/:commentId", (req, res) => {
 			res.redirect("back");
 		} else {
 			req.flash("success", "Comment Updated");
-			res.redirect(`/campgrounds/${req.params.id}`);
+			res.redirect(`/yelpcamp/campgrounds/${req.params.id}`);
 		}
 	});
 });
@@ -90,7 +90,7 @@ router.delete("/:commentId", checkCommentOwnership, (req, res) => {
 			res.redirect("back");
 		} else {
 			req.flash("success", "Comment Deleted");
-			res.redirect(`/campgrounds/${req.params.id}`);
+			res.redirect(`/yelpcamp/campgrounds/${req.params.id}`);
 		}
 	});
 });

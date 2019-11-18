@@ -9,7 +9,7 @@ middlewareObj.isLoggedIn = (req, res, next) => {
 		return next();
 	}
 	req.flash("error", "Please Login First!");
-	res.redirect("/login");
+	res.redirect("/yelpcamp/login");
 }
 
 middlewareObj.checkCampgroundOwnership = (req, res, next) => {
@@ -17,7 +17,7 @@ middlewareObj.checkCampgroundOwnership = (req, res, next) => {
 		Campground.findById(req.params.id, (err, campground) => {
 			if(err || !campground) {
 				req.flash("error", "Campground not found");
-				res.redirect("/campgrounds");
+				res.redirect("/yelpcamp/campgrounds");
 			} else if (campground.author.id.equals(req.user._id)){
 				next();
 			} else {
@@ -37,7 +37,7 @@ middlewareObj.checkCommentOwnership = (req, res, next) => {
 		Comment.findById(req.params.commentId, (err, comment) => {
 			if(err || !comment) {
 				req.flash("error", "Comment not found");
-				res.redirect("/campgrounds");
+				res.redirect("/yelpcamp/campgrounds");
 			} else if (comment.author.id.equals(req.user._id)){
 				next();
 			} else {

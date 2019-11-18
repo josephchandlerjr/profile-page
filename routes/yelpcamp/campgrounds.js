@@ -39,7 +39,7 @@ router.post("/", isLoggedIn, (req, res) => {
 			res.redirect("back");
 		} else {
 			req.flash("success", "Campground Created");
-			res.redirect("/campgrounds");
+			res.redirect("/yelpcamp/campgrounds");
 		}
 	});
 	
@@ -50,7 +50,7 @@ router.get("/:id", (req, res) => {
 	Campground.findById(req.params.id).populate("comments").exec( (err, campground) => {
 		if(err || !campground){
 			req.flash("error", "Campground does not exist");
-			res.redirect("/campgrounds");
+			res.redirect("/yelpcamp/campgrounds");
 		} else {
 			res.render("yelpcamp/campgrounds/show", {campground});
 		}
@@ -65,7 +65,7 @@ router.get("/:id/edit", checkCampgroundOwnership, (req, res) => {
 	Campground.findById(req.params.id, (err, campground) => {
 		if(err || !campground){
 			req.flash("error", "Campground not found");
-			res.redirect("/campgrounds");
+			res.redirect("/yelpcamp/campgrounds");
 		} else {
 			res.render("yelpcamp/campgrounds/edit", {campground});
 		}
@@ -77,10 +77,10 @@ router.put("/:id", checkCampgroundOwnership, (req, res) => {
 	Campground.findByIdAndUpdate(req.params.id, req.body.campground , (err, updatedCampground) =>{
 		if(err || !updatedCampground){
 			req.flash("error", "Campground not found");
-			res.redirect("/campgrounds");
+			res.redirect("/yelpcamp/campgrounds");
 		} else {
 			req.flash("success", "Campground Successfully Updated");
-			res.redirect(`/campgrounds/${req.params.id}`);
+			res.redirect(`/yelpcamp/campgrounds/${req.params.id}`);
 		}
 	});
 });
@@ -90,16 +90,16 @@ router.delete("/:id", checkCampgroundOwnership, (req, res) => {
 	Campground.findByIdAndRemove(req.params.id, (err, campgroundRemoved) =>{
 		if(err) {
 			req.flash("error", "Campground not found");
-			res.redirect("/campgrounds");
+			res.redirect("/yelpcamp/campgrounds");
 		} else {
 			Comment.deleteMany({_id: {$in: campgroundRemoved.comments}}, (err) => {
 				if(err){
 					req.flash("error", "Error. Something went terribly wrong");
 					console.log(err);
-					res.redirect("/campgrounds");
+					res.redirect("/yelpcamp/campgrounds");
 				} else {
 					req.flash("success", "Campground Successfully Deleted");
-					res.redirect("/campgrounds");
+					res.redirect("/yelpcamp/campgrounds");
 				}
 			});
 		}

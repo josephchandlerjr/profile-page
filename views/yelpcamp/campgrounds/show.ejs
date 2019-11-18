@@ -19,8 +19,8 @@
 					<p><%=campground.description%></p>
 					<p><em>Submitted By </em><%=campground.author.username%></p>
 					<% if(currentUser && campground.author.id.equals(currentUser._id)) { %>
-						<a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
-						<form id="delete-campground" method="POST" action="/campgrounds/<%= campground._id %>?_method=DELETE">
+						<a class="btn btn-warning" href="/yelpcamp/campgrounds/<%= campground._id %>/edit">Edit</a>
+						<form id="delete-campground" method="POST" action="/yelpcamp/campgrounds/<%= campground._id %>?_method=DELETE">
 							<button class="btn btn-danger">Delete</button>
 						</form>
 					<% } %>
@@ -29,7 +29,7 @@
 			</div>
 			<div class="well">
 				<div class="text-right">
-					<a class="btn btn-success" href="/campgrounds/<%=campground._id%>/comments/new">Add a comment</a>
+					<a class="btn btn-success" href="/yelpcamp/campgrounds/<%=campground._id%>/comments/new">Add a comment</a>
 				</div>
 				<hr>
 				<% for (comment of campground.comments) {%>
@@ -39,8 +39,8 @@
 						<span class="pull-right">10 days ago</span>
 						<p><%=comment.text%></p>
 						<% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
-							<a class="btn btn-xs btn-warning" href="/campgrounds/<%= campground._id %>/comments/<%=comment.id %>/edit">Edit</a>
-							<form id="delete-comment" method="POST" action="/campgrounds/<%= campground._id %>/comments/<%=comment.id %>?_method=DELETE">
+							<a class="btn btn-xs btn-warning" href="/yelpcamp/campgrounds/<%= campground._id %>/comments/<%=comment.id %>/edit">Edit</a>
+							<form id="delete-comment" method="POST" action="/yelpcamp/campgrounds/<%= campground._id %>/comments/<%=comment.id %>?_method=DELETE">
 								<button class="btn btn-xs btn-danger">Delete</button>
 							</form>
 						<% } %>
