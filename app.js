@@ -67,8 +67,8 @@ app.use((req, res, next) => {
 });
 
 // ROUTES
-app.use(yelpcampAuthRoutes);
-app.use("/campgrounds/:id/comments", yelpcampCommentRoutes);
-app.use("/campgrounds", yelpcampCampgroundRoutes);
+app.use("/yelpcamp", yelpcampAuthRoutes);
+app.use("/yelpcamp/campgrounds/:id/comments", yelpcampCommentRoutes);
+app.use("/yelpcamp/campgrounds", yelpcampCampgroundRoutes);
 
 app.listen(process.env.PORT || 3000, () => console.log("YelpCamp Server has started"));
