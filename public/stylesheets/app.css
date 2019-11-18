@@ -18,3 +18,7 @@
 #landing-header {
 	background: url("/img/header.jpeg");
 }
+
+#name  {
+	font-weight: 400;
+}
