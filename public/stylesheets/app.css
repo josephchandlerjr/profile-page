@@ -22,3 +22,14 @@
 #name  {
 	font-weight: 400;
 }
+
+.btn-dyn:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 10px 20px rgba(0,0,0, 0.2);
+}
+
+.btn-dyn:active {
+	box-shadow: 0 10px 10px rgba(0,0,0, 0.2);
+	transform: translateY(-1px);
+
+}
