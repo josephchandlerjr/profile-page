@@ -97,7 +97,7 @@ app.use((req, res, next) => {
 });
 
 // ROUTES
-app.get("/", (req,res) => res.render("landing", {projects}));
+app.get("/", (req,res) => res.render("landing", {projects, githubLink: 'https://github.com/josephchandlerjr/profile-page'}));
 app.get("/chess", (req,res) => res.render("chess/index"));
 app.get("/patatapClone", (req,res) => res.render("patatapClone/index"));
 app.use("/yelpcamp", yelpcampAuthRoutes);
