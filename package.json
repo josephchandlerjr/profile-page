@@ -4,7 +4,7 @@
   "description": "YelpCamp v1",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js -e js,ejs",
     "start": "node app.js"
   },
   "author": "Joe Chandler",
@@ -17,12 +17,13 @@
     "express-session": "^1.17.0",
     "method-override": "^3.0.0",
     "mongoose": "^5.7.5",
-    "nodemon": "^1.19.4",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/josephchandlerjr/YelpCamp.git"

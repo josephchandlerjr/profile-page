@@ -18,6 +18,14 @@ const yelpcampCommentRoutes 	= require("./routes/yelpcamp/comments.js"),
 	  yelpcampAuthRoutes		= require("./routes/yelpcamp/index.js");
 
 const projects = [
+		{
+		name: "Asteroids", 
+		description: "My version of the classic arcade game built using pure JavaScript and HTML5 Canvas",
+		bullets: ["Arrow keys to direct ship", "Spacebar to fire lasers", "Esc to pause game", "Have fun :)"],
+		image:"https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1057&q=80",
+		route: "/asteroids",
+		github: "https://github.com/josephchandlerjr/asteroids"
+	},
 	{
 		name: "YelpCamp", 
 		description: "A RESTful Node.js app, where users can enter campground profiles and view/comment on others' campgrounds. Built during Colt Steele's Web Developer Bootcamp course in Udemy using:",
@@ -100,8 +108,9 @@ app.use((req, res, next) => {
 app.get("/", (req,res) => res.render("landing", {projects, githubLink: 'https://github.com/josephchandlerjr/profile-page'}));
 app.get("/chess", (req,res) => res.render("chess/index"));
 app.get("/patatapClone", (req,res) => res.render("patatapClone/index"));
+app.get("/asteroids", (req,res) => res.render("asteroids/index"));
 app.use("/yelpcamp", yelpcampAuthRoutes);
 app.use("/yelpcamp/campgrounds/:id/comments", yelpcampCommentRoutes);
 app.use("/yelpcamp/campgrounds", yelpcampCampgroundRoutes);
 
-app.listen(process.env.PORT || 3000, () => console.log("YelpCamp Server has started"));
+app.listen(process.env.PORT || 3000, () => console.log("Server has started"));
