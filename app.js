@@ -106,7 +106,7 @@ app.use((req, res, next) => {
 
 // ROUTES
 app.get("/", (req,res) => res.render("landing", {projects, githubLink: 'https://github.com/josephchandlerjr/profile-page'}));
-app.get("/chess", (req,res) => res.render("chess/index"));
+app.get("/chess", (req,res) => res.redirect("http://chessforemerson.herokuapp.com/"));
 app.get("/patatapClone", (req,res) => res.render("patatapClone/index"));
 app.get("/asteroids", (req,res) => res.render("asteroids/index"));
 app.use("/yelpcamp", yelpcampAuthRoutes);
