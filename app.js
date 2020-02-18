@@ -28,10 +28,8 @@ const projects = [
 	},
 	{
 		name: "Chess for Emerson", 
-		description: "A chess game I built for my six year old daughter. It's attached to a simple chess engine that:",
-		bullets: ["Node", "Express", "React", "Socket.io", "Validates moves (Including En Passant and Castling)",
-				  "Executes random moves as black or white (or neither if you wish to move both)", 
-				  "Highlights possible moves for player, and recognizes Checkmate vs Draw"],
+		description: "A chess game I built for my six year old daughter.",
+		bullets: ["Node", "Express", "React", "Socket.io"],
 		image:"https://images.unsplash.com/photo-1538221566857-f20f826391c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
 		route: "/chess",
 		github: "https://github.com/josephchandlerjr/Chess_For_Emerson"
