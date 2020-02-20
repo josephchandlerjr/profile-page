@@ -18,21 +18,21 @@ const yelpcampCommentRoutes 	= require("./routes/yelpcamp/comments.js"),
 	  yelpcampAuthRoutes		= require("./routes/yelpcamp/index.js");
 
 const projects = [
-{
+	{
+		name: "Chess for Emerson", 
+		description: "A chess game I built for my six year old daughter.",
+		bullets: ["Node", "Express", "React", "Socket.io", "SASS/SCSS"],
+		image:"https://images.unsplash.com/photo-1538221566857-f20f826391c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+		route: "/chess",
+		github: "https://github.com/josephchandlerjr/Chess_For_Emerson"
+	},
+	{
 		name: "Chat", 
 		description: "Node.js application providing chatrooms",
 		bullets: ["Node.js", "Express.js", "Socket.io"],
 		image:"https://unsplash.com/photos/IhsaTDKzdwg/download?force=true",
 		route: "https://chandler-chat-app.herokuapp.com/",
 		github: "https://github.com/josephchandlerjr/chat-app"
-	},
-	{
-		name: "Chess for Emerson", 
-		description: "A chess game I built for my six year old daughter.",
-		bullets: ["Node", "Express", "React", "Socket.io"],
-		image:"https://images.unsplash.com/photo-1538221566857-f20f826391c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-		route: "/chess",
-		github: "https://github.com/josephchandlerjr/Chess_For_Emerson"
 	},
 	{
 		name: "Asteroids", 
