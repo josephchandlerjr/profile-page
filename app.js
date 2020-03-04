@@ -21,7 +21,7 @@ const projects = [
 	{
 		name: "Chess for Emerson", 
 		description: "A chess game I built for my six year old daughter.",
-		bullets: ["Node", "Express", "React", "Socket.io", "sass/scss"],
+		bullets: ["Node", "Express", "React", "Redux", "Socket.io", "sass/scss"],
 		image:"https://images.unsplash.com/photo-1538221566857-f20f826391c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
 		route: "/chess",
 		github: "https://github.com/josephchandlerjr/Chess_For_Emerson"
